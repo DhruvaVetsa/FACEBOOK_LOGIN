@@ -1,19 +1,29 @@
-<!DOCTYPE html>
-<html>
+<%- include("includes/header.ejs") %>
+    <link rel="stylesheet" href="/css/style.css">
+    </head>
 
-<head>
-    <title>
-        <%= title %>
-    </title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
+    <body>
+        <div id="back">
+            <div id="overlay">
+                <div id="left">
+                    <img src="https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80"
+                        alt="">
+                </div>
+                <div id="right">
+                    <h2>Create New Account on <br><span>My Facebook</span></h2>
+                    <p>Life is better with friends.</p>
+                    <form>
+                        <input type="text" placeholder="Name" required>
+                        <input type="email" placeholder="Email" required>
+                        <input type="password" placeholder="Password" required>
 
-<body>
-    <h1>
-        <%= title %>
-    </h1>
-    <p>Welcome to <%= title %>
-    </p>
-</body>
+                        <input type="username" placeholder="Username" required>
+                        <input type="submit" value="Register as an User">
+                        <a>Already have an account ?</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
 
-</html>
+    </html>
