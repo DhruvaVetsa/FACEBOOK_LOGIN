@@ -1,0 +1,19 @@
+.homeContent {
+    padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    border-bottom: 1px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+img {
+    height: 150px;
+    float: left;
+    margin: 15px;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+}

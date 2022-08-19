@@ -4,7 +4,9 @@ var router = express.Router();
 const index_contoller = require('../controller/index_contoller');
 const { generalErr } = require("../controller/err_contoller");
 
-/* GET home page. */
-router.get('/', index_contoller.getIndex);
+router.get('/', index_contoller.getHome);
+router.get('/signup', index_contoller.getRegistration);
+router.get('/signin', index_contoller.getLogin);
+router.get('/profile/:userID', index_contoller.getProfile);
 
 module.exports = router;
