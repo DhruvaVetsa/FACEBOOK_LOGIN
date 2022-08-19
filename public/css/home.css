@@ -10,10 +10,21 @@ h1, h2, h3, h4, h5, h6 {
 
 img {
     height: 150px;
-    float: left;
     margin: 15px;
     background-color: lightgray;
     padding: 10px;
     border-radius: 10px;
     border: 1px solid black;
+}
+
+.legendspan {
+    display: inline-block;
+    font-weight: 10px;
+    height: 10px;
+    width: 10px;
+    margin-right: 20px;
+}
+
+ul li {
+    list-style-type: none;
 }
