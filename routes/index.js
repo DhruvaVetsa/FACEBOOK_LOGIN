@@ -5,24 +5,36 @@ const usersDB = require("./users");
 
 const localStrategy = require("passport-local");
 
+const { body, validationResult } = require('express-validator');
+
 passport.use(new localStrategy(usersDB.authenticate()));
 
 router.get("/", (req, res) => {
-    res.render("index");
+    res.render("index", {
+        error: "No error"
+    });
 });
 
-router.post("/reg", (req, res) => {
-    const dets = new usersDB({
-        name: req.body.name,
-        username: req.body.username,
-        email: req.body.email,
-    });
-
-    usersDB.register(dets, req.body.password).then((registeredUser) => {
-        passport.authenticate("local")(req, res, () => {
-            res.redirect("/profile");
+router.post("/reg", body('password').isLength({ min: 8 }).withMessage("Password should be of minimum 8 charecters"), (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        res.render("index", { error: errors });
+    }
+    else {
+        console.log("In else");
+        const dets = new usersDB({
+            name: req.body.name,
+            username: req.body.username,
+            email: req.body.email,
         });
-    });
+
+        usersDB.register(dets, req.body.password).then((registeredUser) => {
+            passport.authenticate("local")(req, res, () => {
+                res.redirect("/profile");
+            });
+        });
+
+    }
 });
 
 router.get("/profile", isLoggedIn, (req, res) => {
